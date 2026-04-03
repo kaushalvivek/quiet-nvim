@@ -1,6 +1,6 @@
-# nvim
+# quiet-nvim
 
-My Neovim config, built on [LazyVim](https://github.com/LazyVim/LazyVim).
+A Neovim config that doesn't interrupt. Built on [LazyVim](https://github.com/LazyVim/LazyVim).
 
 ## Highlights
 
@@ -32,7 +32,7 @@ lua/
 ## Install
 
 ```sh
-git clone git@github.com:kaushalvivek/nvim.git ~/.config/nvim
+git clone git@github.com:kaushalvivek/quiet-nvim.git ~/.config/nvim
 nvim
 ```
 
