@@ -27,19 +27,22 @@ return {
 
       heading = {
         sign = false,
-        icons = { "󰲡 ", "󰲣 ", "󰲥 ", "󰲧 ", "󰲩 ", "󰲫 " },
+        icons = { "", "", "", "", "", "" },
         position = "inline",
-        width = "full",
+        width = "block",
         border = false,
+        backgrounds = {},
       },
 
       code = {
         sign = false,
-        style = "full",
-        width = "full",
+        style = "normal",
+        width = "block",
         border = "none",
         left_pad = 2,
         right_pad = 2,
+        language_pad = 0,
+        highlight = "RenderMarkdownCode",
       },
 
       dash = {
@@ -67,6 +70,12 @@ return {
       pipe_table = {
         preset = "round",
         style = "full",
+        cell = "trimmed",
+      },
+      link = {
+        wiki = { icon = "" },
+        hyperlink = "",
+        image = "",
       },
 
       sign = {
@@ -83,7 +92,18 @@ return {
     opts = {
       diagnostics = {
         virtual_text = false,
+        underline = true,
+        signs = {
+          text = {
+            [vim.diagnostic.severity.ERROR] = "●",
+            [vim.diagnostic.severity.WARN] = "●",
+            [vim.diagnostic.severity.HINT] = "●",
+            [vim.diagnostic.severity.INFO] = "●",
+          },
+        },
       },
+      inlay_hints = { enabled = false },
+      codelens = { enabled = false },
       servers = {
         marksman = {
           handlers = {

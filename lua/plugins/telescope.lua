@@ -3,20 +3,19 @@ return {
     "nvim-telescope/telescope.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
-      {
-        "nvim-telescope/telescope-fzf-native.nvim",
-        build = "make",
-      },
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
     cmd = "Telescope",
     keys = {
       { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
       {
         "<leader>fg",
-        function() require("telescope.builtin").live_grep() end,
-        desc = "Live Grep"
+        function()
+          require("telescope.builtin").live_grep()
+        end,
+        desc = "Live Grep",
       },
-      { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
+      { "<leader>fb", "<cmd>Telescope buffers sort_mru=true ignore_current_buffer=true<cr>", desc = "Buffers" },
       { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help Tags" },
       { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent Files" },
       { "<leader>fw", "<cmd>Telescope grep_string<cr>", desc = "Grep Word" },
@@ -27,15 +26,18 @@ return {
     },
     opts = {
       defaults = {
-        prompt_prefix = "  ",
-        selection_caret = " ",
+        prompt_prefix = "   ",
+        selection_caret = "  ",
+        entry_prefix = "  ",
         path_display = { "truncate" },
         sorting_strategy = "ascending",
+        borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
+        results_title = false,
+        prompt_title = false,
+        preview_title = false,
+        layout_strategy = "horizontal",
         layout_config = {
-          horizontal = {
-            prompt_position = "top",
-            preview_width = 0.55,
-          },
+          horizontal = { prompt_position = "top", preview_width = 0.55 },
           width = 0.87,
           height = 0.80,
         },
@@ -43,6 +45,7 @@ return {
           i = {
             ["<C-j>"] = "move_selection_next",
             ["<C-k>"] = "move_selection_previous",
+            ["<esc>"] = "close",
           },
         },
       },
@@ -50,7 +53,6 @@ return {
     config = function(_, opts)
       local telescope = require("telescope")
       telescope.setup(opts)
-
       local ok, err = pcall(telescope.load_extension, "fzf")
       if not ok then
         vim.notify("Failed to load telescope-fzf-native: " .. tostring(err), vim.log.levels.WARN)
