@@ -11,10 +11,10 @@ A Neovim config that doesn't interrupt. Built on [LazyVim](https://github.com/La
 - **Telescope** with fzf-native, custom keymaps, top-positioned prompt
 - **Markdown rendering** via [render-markdown.nvim](https://github.com/MeanderingProgrammer/render-markdown.nvim) with Obsidian preset
 - **Clean diagnostics** -- virtual text off, dot signs, Marksman diagnostics silenced
-- **No chrome** -- no bufferline, no dashboard, no `~` fill, no window separators, `cmdheight=0`, global single-line statusline in muted grey
+- **No chrome** -- no bufferline, no dashboard, no `~` fill, global single-line statusline in muted grey
 - **Flat surfaces** -- floats, pickers, popups, and the cmdline share the `Normal` background; no borders anywhere
-- **Prose mode** -- markdown opens centered in Snacks zen (76 cols, typewriter scrolling, no line numbers); `<leader>uz` toggles it anywhere
-- **Quiet messages** -- yank/write/undo chatter routed away; notifications are minimal and fade in 2.5s
+- **Prose mode** -- markdown gets wrap, no line numbers, `conceallevel=2`; `<leader>uz` opens Snacks zen at 76 cols
+- **Quiet messages** -- yank/write/undo chatter routed away, everything else shown; notifications are minimal and fade in 2.5s
 
 ## Structure
 

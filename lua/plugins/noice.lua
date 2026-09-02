@@ -26,7 +26,6 @@ return {
         hover = { opts = { border = "none" } },
       },
       routes = {
-        { filter = { event = "msg_show", kind = "" }, opts = { skip = true } },
         { filter = { event = "msg_show", kind = { "echo", "echomsg" }, find = "written" }, opts = { skip = true } },
         { filter = { event = "msg_show", find = "lines? yanked" }, opts = { skip = true } },
         { filter = { event = "msg_show", find = "more lines?" }, opts = { skip = true } },
